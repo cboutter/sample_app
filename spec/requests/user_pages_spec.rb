@@ -43,6 +43,7 @@ describe "User pages" do
       end
 
       describe "after saving the user" do
+        before { click_button "Create my account" }
         it { should have_link('Sign out') }
       end
     end
