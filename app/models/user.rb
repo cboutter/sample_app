@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
+  def feed
+    # This is preliminary. See "following users" for full implementation
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
     def create_remember_token
