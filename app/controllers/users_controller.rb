@@ -7,12 +7,12 @@ class UsersController < ApplicationController
     if signed_in_user then
       redirect_to root_path
     else
-  	  @user = User.new
+      @user = User.new
     end
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
